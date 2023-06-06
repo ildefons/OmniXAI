@@ -281,6 +281,8 @@ class AutoExplainerBase(metaclass=AutodocABCMeta):
             if self.explainers[name].explanation_type in ["local", "both"]:
                 try:
                     param = params.get(name, {})
+                    #ILDE
+                    print(name)
                     explanations[name] = self.explainers[name].explain(X=X, **param)
                 except Exception as e:
                     raise type(e)(f"Explainer {name} -- {str(e)}")
